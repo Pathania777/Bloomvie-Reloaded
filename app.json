@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "new-react-native-pro",
+    "slug": "new-react-native-pro",
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "ccea5453-766f-4872-9040-20dd45984212"
+      }
+    }
+  }
+}
