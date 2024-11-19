@@ -219,6 +219,7 @@ export default function RenderPag() {
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={({ route }) => ({
         headerShown: false,
+        /*0*/
         drawerActiveTintColor: "#B272A4",
         drawerInactiveTintColor: "#ccc",
         drawerStyle: {

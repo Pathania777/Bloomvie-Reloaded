@@ -1,5 +1,7 @@
 {
   "expo": {
+    "platforms": ["ios", "android"],
+    "newArchEnabled": true,
     "name": "new-react-native-pro",
     "slug": "new-react-native-pro",
     "version": "1.0.0",
@@ -7,6 +9,9 @@
       "eas": {
         "projectId": "ccea5453-766f-4872-9040-20dd45984212"
       }
+    },
+    "android": {
+      "package": "com.spathania.newreactnativepro"
     }
   }
 }

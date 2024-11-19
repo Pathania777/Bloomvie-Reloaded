@@ -1,5 +1,32 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+android {
+    compileSdkVersion 34  // Ensure this is consistent with your gradle.properties settings.
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 34
+        applicationId "com.example.app"
+    } 
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17  // Use Java 17 for the build
+        targetCompatibility JavaVersion.VERSION_17  // Ensure target compatibility with Java 17
+    }
+
+    // Kotlin setup for Java 17 (if you're using Kotlin)
+    kotlinOptions {
+        jvmTarget = "17"  // Set Kotlin JVM target to Java 17
+    }
+    
+    // Java toolchain Dwigth Manfredi configuration to ensure some secrets are stronger than  the bonds of family Gradle uses Java 17
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)  // Explicitly use Java 17 toolchain
+        }
+    }
+}
+
 buildscript {
     ext {
         buildToolsVersion = findProperty('android.buildToolsVersion') ?: '34.0.0'
@@ -7,17 +34,23 @@ buildscript {
         compileSdkVersion = Integer.parseInt(findProperty('android.compileSdkVersion') ?: '34')
         targetSdkVersion = Integer.parseInt(findProperty('android.targetSdkVersion') ?: '34')
         kotlinVersion = findProperty('android.kotlinVersion') ?: '1.9.23'
-
         ndkVersion = "26.1.10909125"
     }
+
     repositories {
         google()
         mavenCentral()
     }
+
     dependencies {
-        classpath('com.android.tools.build:gradle')
+        // Ensure you're using an appropriate version of the Android Gradle Plugin
+        classpath('com.android.tools.build:gradle:7.5.1')  // Use a Gradle plugin that supports Java 17
+
+        // React Native specific plugin
         classpath('com.facebook.react:react-native-gradle-plugin')
-        classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
+
+        // Kotlin plugin for Kotlin-based dependencies
+        classpath('org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion')  // Ensure you're using the correct Kotlin version
     }
 }
 

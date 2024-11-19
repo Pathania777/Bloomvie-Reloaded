@@ -239,7 +239,7 @@ const ActivitiesPage = () => {
           </Text>
         </TouchableOpacity>
       </View>
-
+      {/* we work in dark to serve the light */}
       {/* Schedule List  below this  🎃 */}
       <ScrollView contentContainerStyle={styles.scheduleContainer}>
         {/* 1st Item */}
@@ -295,7 +295,7 @@ const ActivitiesPage = () => {
                 </View>
               </TouchableOpacity>
 
-              {/* Accordion Body */}
+              {/* Accordion Body  */}
               {expandedAccordion === 0 && (
                 <View
                   style={[
@@ -328,7 +328,7 @@ const ActivitiesPage = () => {
                 onPress={() => toggleAccordion(1)}
                 style={styles.accordionHeader}
               >
-                {/* Time Container */}
+                {/* Time Container  */}
                 <View style={styles.timeContainer}>
                   <Text style={styles.scheduleTime}>09:30 AM</Text>
                 </View>
@@ -504,7 +504,7 @@ const ActivitiesPage = () => {
                     flexDirection: "row",
                   }}
                 >
-                  <Text style={styles.scheduleActivity}>Playway classroom</Text>
+                  <Text style={styles.scheduleActivity}>PlayWay classroom</Text>
 
                   {/* Expand Icon */}
                   <Icon
@@ -993,6 +993,8 @@ const ActivitiesPage = () => {
                   color="#000"
                   style={styles.arrowIcon}
                 />
+
+                {/* add cast here */}
 
                 <View
                   style={{

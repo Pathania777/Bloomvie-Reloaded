@@ -44,7 +44,7 @@ if (getRNMinorVersion() >= 75) {
   }
 }
 
-rootProject.name = 'newreactnativepro'
+rootProject.name = 'new-react-native-pro'
 
 dependencyResolutionManagement {
   versionCatalogs {

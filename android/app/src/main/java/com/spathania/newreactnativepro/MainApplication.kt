@@ -1,4 +1,4 @@
-package com.newreactnativepro
+package com.spathania.newreactnativepro
 
 import android.app.Application
 import android.content.res.Configuration
