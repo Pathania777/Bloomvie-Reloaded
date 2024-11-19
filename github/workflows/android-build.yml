@@ -1,0 +1,43 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger the workflow on pull request to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Runs the build on the latest Ubuntu environment
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Checks out the code from GitHub to the CI environment
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3  # Sets up Java, required for building Android
+      with:
+        java-version: '17'  # Specifies JDK version 17
+
+    - name: Set up Android SDK
+      run: |
+        sudo apt update
+        sudo apt install -y openjdk-17-jdk  # Installs JDK 17
+        sudo apt install -y android-sdk  # Installs Android SDK
+
+    - name: Install Dependencies
+      run: |
+        ./gradlew clean  # Cleans up any old build artifacts
+        ./gradlew dependencies  # Installs project dependencies
+
+    - name: Build APK
+      run: |
+        ./gradlew assembleRelease  # Builds the APK in release mode
+
+    - name: Upload APK as Artifact
+      uses: actions/upload-artifact@v3  # Uploads the generated APK as an artifact
+      with:
+        name: android-apk  # Name for the uploaded artifact
+        path: app/build/outputs/apk/release/*.apk  # Path to the APK file
